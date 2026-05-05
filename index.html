@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMS Point of Sale — Retail POS for Kiosks & Tablets</title>
+  <meta name="description" content="A full-stack Point-of-Sale system built for retail kiosks. Born in a pet store, ready for any shop. Electron + React + .NET 8 + PostgreSQL." />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="BMS Point of Sale — Free Retail POS" />
+  <meta property="og:description" content="Full-stack POS built for kiosks. Offline-capable, multi-terminal, thermal printing, barcode scanner. Born in a pet store — ready for any retail." />
+  <meta property="og:image"       content="assets/screenshots/03-manager-dashboard.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="BMS Point of Sale — Free Retail POS" />
+  <meta name="twitter:description" content="Full-stack POS for kiosks. Offline-capable, multi-terminal, thermal printing. Born in a pet store — ready for any retail." />
+  <meta name="twitter:image"      content="assets/screenshots/03-manager-dashboard.png" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="navGrad" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#059669"/>
+          <stop offset="100%" stop-color="#2563eb"/>
+        </linearGradient>
+      </defs>
+      <rect width="38" height="38" rx="11" fill="url(#navGrad)"/>
+      <!-- Toe beans -->
+      <ellipse cx="9.5"  cy="14"  rx="2.8" ry="3.2" fill="white" opacity="0.95"/>
+      <ellipse cx="17"   cy="9.5" rx="3"   ry="3.5" fill="white" opacity="0.95"/>
+      <ellipse cx="23"   cy="9.5" rx="3"   ry="3.5" fill="white" opacity="0.95"/>
+      <ellipse cx="29.5" cy="14"  rx="2.8" ry="3.2" fill="white" opacity="0.95"/>
+      <!-- Main pad -->
+      <ellipse cx="19.5" cy="27.5" rx="9" ry="7" fill="white" opacity="0.95"/>
+    </svg>
+    BMS POS
+  </a>
+  <ul class="nav-links">
+    <li><a href="#start">Get Started</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#setup">Our Setup</a></li>
+    <li><a href="#tech">Tech Stack</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+  </ul>
+  <a href="#download" class="nav-cta">⬇ Download Free</a>
+</nav>
+
+<!-- ── Disclaimer ── -->
+<div class="disclaimer">
+  <p>⚠️ <strong>Pre-production software.</strong> Not yet validated in a live retail environment. Test thoroughly before processing real transactions.</p>
+</div>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="paw-pattern"></div>
+
+  <!-- Floating pet emojis -->
+  <span class="hero-float" style="left:7%;top:28%;animation-duration:3.8s;animation-delay:0s;font-size:2.2rem">🐾</span>
+  <span class="hero-float" style="left:14%;top:58%;animation-duration:4.5s;animation-delay:0.8s;font-size:1.6rem">🐶</span>
+  <span class="hero-float" style="left:4%;top:72%;animation-duration:3.2s;animation-delay:1.5s;font-size:1.3rem">🦴</span>
+  <span class="hero-float" style="right:8%;top:25%;animation-duration:4.1s;animation-delay:0.3s;font-size:2rem">🐱</span>
+  <span class="hero-float" style="right:16%;top:55%;animation-duration:3.5s;animation-delay:1.2s;font-size:1.5rem">🦜</span>
+  <span class="hero-float" style="right:5%;top:70%;animation-duration:4.8s;animation-delay:2s;font-size:1.2rem">🐠</span>
+  <span class="hero-float" style="left:48%;top:15%;animation-duration:3.9s;animation-delay:0.5s;font-size:1.1rem">🐹</span>
+
+  <div class="hero-badge">🐾 Born in a pet store — built for any retail</div>
+
+  <h1>The POS that<br>loves your store</h1>
+
+  <p class="hero-sub">
+    Full-stack, offline-capable, and running on a Raspberry Pi.
+    Tested on real shelves — works for pet stores, general retail,
+    food, and beyond.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary">⬇ Download Free</a>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System" target="_blank" class="btn-secondary">★ View on GitHub</a>
+  </div>
+
+  <div class="hero-screenshot">
+    <img src="assets/screenshots/03-manager-dashboard.png" alt="BMS POS Manager Dashboard" />
+    <div class="screenshot-glow"></div>
+  </div>
+</div>
+
+<!-- ── Highlights bar ── -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-emoji">💸</span>
+    <div class="stat-value">Free</div>
+    <div class="stat-label">Forever. No subscriptions.</div>
+  </div>
+  <div class="stat">
+    <span class="stat-emoji">📡</span>
+    <div class="stat-value">Offline</div>
+    <div class="stat-label">Keeps selling when Wi-Fi drops</div>
+  </div>
+  <div class="stat">
+    <span class="stat-emoji">🍓</span>
+    <div class="stat-value">Pi-Ready</div>
+    <div class="stat-label">Runs on Raspberry Pi 4/5</div>
+  </div>
+  <div class="stat">
+    <span class="stat-emoji">🖨️</span>
+    <div class="stat-value">Plug & Print</div>
+    <div class="stat-label">USB thermal printer, zero setup</div>
+  </div>
+  <div class="stat">
+    <span class="stat-emoji">💻</span>
+    <div class="stat-value">3 Platforms</div>
+    <div class="stat-label">Linux · Windows · Raspberry Pi</div>
+  </div>
+</div>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:70px">
+    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,10 1440,35 L1440,70 L0,70 Z" fill="rgba(5,150,105,0.06)"/>
+    <path d="M0,50 C300,20 600,65 900,40 C1100,25 1300,55 1440,45 L1440,70 L0,70 Z" fill="rgba(37,99,235,0.04)"/>
+  </svg>
+</div>
+
+<!-- ── Getting Started ── -->
+<div class="section-wrap section-wrap--green">
+  <section id="start">
+    <div class="deco-paw deco-paw--tr"></div>
+    <div class="section-tag">🚀 Quick Start</div>
+    <h2>Up and running<br>in four steps</h2>
+    <p class="section-sub">No Docker, no cloud setup required. Download, connect your hardware, and start selling.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i data-lucide="download"></i></div>
+        <h3>Download</h3>
+        <p>Grab the AppImage (Linux/Raspberry Pi) or NSIS installer (Windows) from the releases page. No runtime dependencies — everything is bundled.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i data-lucide="database"></i></div>
+        <h3>Run Setup Wizard</h3>
+        <p>On first launch, a setup wizard walks you through your Supabase database credentials. The app creates all tables and runs migrations automatically.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i data-lucide="usb"></i></div>
+        <h3>Connect Hardware</h3>
+        <p>Plug in your USB thermal printer and barcode scanner. Both are auto-detected — no drivers to install on Linux or Raspberry Pi.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i data-lucide="store"></i></div>
+        <h3>Start Selling</h3>
+        <p>Add your products, set up staff PINs, open a cash session, and you're live. Auto-updates keep you on the latest version in the background.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:60px">
+    <path d="M0,20 C360,55 720,5 1080,40 C1200,50 1340,25 1440,30 L1440,0 L0,0 Z" fill="rgba(5,150,105,0.07)"/>
+  </svg>
+</div>
+
+<!-- ── Features ── -->
+<section id="features">
+  <div class="deco-paw deco-paw--bl"></div>
+  <div class="section-tag">✨ Features</div>
+  <h2>Everything you need<br>to run a modern store</h2>
+  <p class="section-sub">Built for kiosks and touch screens. Works on Raspberry Pi, Linux, and Windows.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/05-pos-with-item.png" alt="Point of Sale" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="shopping-cart"></i></div>
+        <h3>Point of Sale</h3>
+        <p>Multi-item transactions with tax, discounts, and change calculation. Plug in a USB barcode scanner — it's auto-detected and works immediately.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/08-advanced-inventory.png" alt="Advanced Inventory" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="package"></i></div>
+        <h3>Advanced Inventory</h3>
+        <p>Full product CRUD, batch tracking with lot numbers and expiry dates, manual stock adjustments, physical counting, and low-stock alerts.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/09-returns.png" alt="Returns & Refunds" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="rotate-ccw"></i></div>
+        <h3>Returns & Refunds</h3>
+        <p>Process returns by transaction ID. Optional manager-approval threshold. Automatic stock restoration on approved returns.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/10-reports.png" alt="Sales Reports" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+        <h3>Sales Reports</h3>
+        <p>Daily, weekly, and monthly summaries. Top products by revenue and quantity. Payment method breakdown. Z-Report / cash reconciliation.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/06-employees.png" alt="Employee Management" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="users"></i></div>
+        <h3>Employee Management</h3>
+        <p>Manager, Cashier, and Inventory roles with distinct permissions. Add, edit, deactivate, and reset PINs. Full audit trail per user.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/14-user-activity.png" alt="Audit Trail" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+        <h3>Full Audit Trail</h3>
+        <p>Every login, sale, return, and config change recorded with user, timestamp, and IP. BCrypt PINs, JWT denylist, login lockout, and rate limiting.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/15-cash-session.png" alt="Cash Session" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="banknote"></i></div>
+        <h3>Cash Reconciliation</h3>
+        <p>Open and close cash sessions with variance tracking. Z-Report per terminal with sales summary, payment breakdown, and cash reconciliation.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/12-system-settings.png" alt="System Settings" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="settings-2"></i></div>
+        <h3>System Settings</h3>
+        <p>Date format, auto-logout timer, payment methods, receipt template, and tax configuration — all adjustable without touching code.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/03-manager-dashboard.png" alt="Multi-Terminal" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="monitor"></i></div>
+        <h3>Multi-Terminal</h3>
+        <p>Multiple terminals on a shared Supabase database. Each terminal scoped by X-Terminal-Id. Setup wizard for first-run configuration.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/04-pos-empty.png" alt="Offline Mode" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="wifi-off"></i></div>
+        <h3>Offline Mode</h3>
+        <p>Keep selling when the internet drops. Sales, returns, and stock adjustments queue locally and auto-sync the moment connectivity is restored.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/16-hardware-status.png" alt="Receipt Printing" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="printer"></i></div>
+        <h3>Thermal Receipt Printing</h3>
+        <p>ESC/POS receipts printed directly to USB thermal printers — no CUPS, no drivers on Linux. <strong>80mm paper only.</strong> Supports Epson TM, Star TSP, Bixolon, and Citizen.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-img"><img src="assets/screenshots/16-hardware-status.png" alt="Hardware Monitor" loading="lazy" /></div>
+      <div class="feature-body">
+        <div class="feature-icon"><i data-lucide="activity"></i></div>
+        <h3>Hardware Monitor</h3>
+        <p>Live status panel showing printer connection, barcode scanner detection, and database latency. Spot hardware issues before they hit a transaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:60px">
+    <path d="M0,30 C400,65 800,5 1200,45 C1300,55 1380,35 1440,40 L1440,60 L0,60 Z" fill="rgba(37,99,235,0.06)"/>
+  </svg>
+</div>
+
+<!-- ── Screenshots ── -->
+<div class="screenshots-section section-wrap--blue" id="screenshots">
+  <div class="screenshots-inner">
+    <div class="section-tag">📸 Screenshots</div>
+    <h2>See it in action</h2>
+    <p class="section-sub">Every screen, designed for touch-first kiosk use at 1366 × 768.</p>
+    <div class="screenshots-tabs" id="screenshotTabs"></div>
+    <div class="screenshot-viewer">
+      <img id="screenshotImg" src="assets/screenshots/01-login.png" alt="BMS POS Screenshot" />
+    </div>
+  </div>
+</div>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:60px">
+    <path d="M0,40 C300,10 600,55 900,25 C1100,8 1320,50 1440,30 L1440,0 L0,0 Z" fill="rgba(37,99,235,0.06)"/>
+  </svg>
+</div>
+
+<!-- ── Tech Stack ── -->
+<section id="tech">
+  <div class="deco-paw deco-paw--tr"></div>
+  <div class="section-tag">🛠 Tech Stack</div>
+  <h2>Built on rock-solid<br>open-source foundations</h2>
+  <p class="section-sub">Every layer chosen for reliability on low-power ARM hardware.</p>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(97,218,251,0.12)">
+        <img src="https://cdn.simpleicons.org/react/61DBFB" alt="React" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">React 19 + TypeScript</div>
+        <div class="tech-desc">UI layer · Vite 7 · Tailwind CSS 4</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(110,84,148,0.15)">
+        <img src="https://cdn.simpleicons.org/electron/9FEAF9" alt="Electron" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">Electron 37</div>
+        <div class="tech-desc">Desktop shell · hardware IPC bridge</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(80,80,240,0.12)">
+        <img src="https://cdn.simpleicons.org/dotnet/512BD4" alt=".NET" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">.NET 8 / ASP.NET Core</div>
+        <div class="tech-desc">REST API · EF Core 9 · Serilog</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(51,103,145,0.15)">
+        <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">PostgreSQL (Supabase)</div>
+        <div class="tech-desc">Npgsql 9 · auto-migrations on startup</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(110,159,24,0.15)">
+        <img src="https://cdn.simpleicons.org/vitest/6E9F18" alt="Vitest" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">Vitest + Playwright</div>
+        <div class="tech-desc">1,509 unit tests · 20+ E2E flows</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(197,26,74,0.12)">
+        <img src="https://cdn.simpleicons.org/raspberrypi/C51A4A" alt="Raspberry Pi" />
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">Raspberry Pi 4/5</div>
+        <div class="tech-desc">Linux ARM64 AppImage · runs headless</div>
+      </div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo" style="background:rgba(5,150,105,0.12)">
+        <i data-lucide="barcode" style="width:26px;height:26px;stroke:var(--emerald-light);fill:none;stroke-width:1.75"></i>
+      </div>
+      <div class="tech-info">
+        <div class="tech-name">UPCItemDB (Trial)</div>
+        <div class="tech-desc">Barcode → product data fallback lookup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Our Setup ── -->
+<div class="section-wrap section-wrap--green">
+  <section id="setup">
+    <div class="deco-paw deco-paw--bl"></div>
+    <div class="section-tag">🔧 Reference Setup</div>
+    <h2>What we built this on</h2>
+    <p class="section-sub">The hardware stack we use day-to-day. If your setup matches this, expect everything to work out of the box.</p>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--green">
+          <img src="https://cdn.simpleicons.org/raspberrypi/C51A4A" alt="Raspberry Pi" />
+        </div>
+        <div>
+          <div class="setup-name">Raspberry Pi 5 <span class="setup-badge">Primary</span></div>
+          <div class="setup-desc">8 GB RAM · Linux ARM64 · runs Electron + .NET API on a single board</div>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--blue">
+          <i data-lucide="printer"></i>
+        </div>
+        <div>
+          <div class="setup-name">ESC/POS Thermal Printer</div>
+          <div class="setup-desc">Any USB thermal (Epson TM, Star TSP, Xprinter) — auto-detected, no driver install on Linux</div>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--green">
+          <i data-lucide="scan-barcode"></i>
+        </div>
+        <div>
+          <div class="setup-name">USB Barcode Scanner</div>
+          <div class="setup-desc">Any USB HID scanner (Zebra, Honeywell, Datalogic, generic) — detected as keyboard input</div>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--blue">
+          <i data-lucide="tv"></i>
+        </div>
+        <div>
+          <div class="setup-name">1366 × 768 Touch Display</div>
+          <div class="setup-desc">UI scales to fill any resolution — works on HDMI monitors and touch screens</div>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--warm">
+          <i data-lucide="archive"></i>
+        </div>
+        <div>
+          <div class="setup-name">Cash Drawer</div>
+          <div class="setup-desc">RJ-11 cash drawer via the printer's kick port — opens automatically on every cash sale</div>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div class="setup-icon setup-icon--green">
+          <img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase" />
+        </div>
+        <div>
+          <div class="setup-name">Supabase (PostgreSQL)</div>
+          <div class="setup-desc">Free tier handles a single store comfortably — upgrade for multi-terminal or high volume</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:60px">
+    <path d="M0,20 C200,55 500,5 800,40 C1050,65 1300,15 1440,35 L1440,60 L0,60 Z" fill="rgba(5,150,105,0.06)"/>
+  </svg>
+</div>
+
+<!-- ── Known Limitations ── -->
+<section id="limitations" style="padding-top:0">
+  <div class="section-tag">⚠️ Limitations</div>
+  <h2>What to know before<br>you go live</h2>
+  <p class="section-sub">Known constraints to keep in mind when deploying in a real retail environment.</p>
+
+  <div class="limits-grid">
+    <div class="limit-card">
+      <div class="limit-icon limit-icon--green">
+        <i data-lucide="barcode"></i>
+      </div>
+      <div>
+        <h3>Product Data — UPCItemDB Trial</h3>
+        <p>When a barcode is scanned and not found locally, the app falls back to the <strong>UPCItemDB free trial API</strong> to auto-fill product details. The trial tier has rate limits and doesn't cover all barcodes — unknown products must be entered manually. A paid UPCItemDB plan is recommended for production.</p>
+      </div>
+    </div>
+    <div class="limit-card">
+      <div class="limit-icon limit-icon--blue">
+        <i data-lucide="credit-card"></i>
+      </div>
+      <div>
+        <h3>Electronic Payments — Manual Tracking Only</h3>
+        <p>Cash is fully integrated — the drawer opens, change is calculated, and reconciliation is tracked. <strong>Card and ETF/Digital</strong> are selectable but have <strong>no terminal integration</strong>. They're recorded for reporting only — the actual transaction must be processed on a separate device and manually confirmed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" style="padding-top:0">
+  <div class="deco-paw deco-paw--tr"></div>
+  <div class="section-tag">💬 FAQ</div>
+  <h2>Common questions</h2>
+  <p class="section-sub">If it's not here, open an issue on GitHub — we don't bite 🐾</p>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Does it really work when the internet goes down? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">Yes. Sales, returns, and stock adjustments are queued locally on the device and automatically synced to the database once connectivity is restored. The product catalog is cached so you can still scan items and complete transactions.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What printers are compatible? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">Any USB ESC/POS thermal printer with <strong>80mm paper</strong> — Epson TM series, Star TSP series, Bixolon SRP/SDP, Citizen, Xprinter, and most generics. On Linux and Raspberry Pi there is <strong>no driver or CUPS install required</strong> — plug in and it works. Windows uses the installed printer driver.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it really free? Can I use it commercially? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">Yes, completely free under the <strong>ISC License</strong>. You can use it commercially, modify it, and distribute it. There are no subscription fees, seat limits, or feature paywalls. See the LICENSE file on GitHub.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a Raspberry Pi? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">No. The Raspberry Pi is our reference hardware but the app runs on <strong>Windows x64</strong>, <strong>Linux x64</strong>, and <strong>Linux ARM64</strong>. Any modern PC or laptop will work fine.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use this for something other than a pet store? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">Absolutely. The pet store theme is where it was born and tested, but it's a general-purpose POS. It works for any retail shop — groceries, clothing, hardware, food service, or any business that sells physical products at a counter.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do software updates work? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">The app checks for updates automatically on startup and every 4 hours. When a new release is published to GitHub, it downloads in the background and prompts you to restart. You can also trigger a check manually from the Admin Panel.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where is my data stored? <i data-lucide="chevron-down"></i></div>
+      <div class="faq-a">All data is stored in <strong>your own PostgreSQL database</strong> — typically Supabase (which you set up and own). The author has no access to your data. Offline queues are stored locally on the device in your user data directory.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Wave divider ── -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:80px">
+    <path d="M0,40 C180,80 400,10 720,50 C900,70 1200,20 1440,45 L1440,80 L0,80 Z" fill="rgba(5,150,105,0.08)"/>
+    <path d="M0,55 C300,20 600,70 900,35 C1100,15 1300,60 1440,55 L1440,80 L0,80 Z" fill="rgba(37,99,235,0.05)"/>
+  </svg>
+</div>
+
+<!-- ── Download ── -->
+<div class="download-section" id="download">
+  <div class="paw-pattern"></div>
+  <div class="download-inner">
+    <div class="section-tag" style="display:inline-flex;margin-bottom:24px">📦 Download</div>
+    <h2>Free. Open Source.<br>Ready to deploy.</h2>
+    <p class="download-tagline">
+      No subscriptions. No seat limits. No vendor lock-in.<br>
+      <strong>We promise it won't bite 🐾</strong>
+    </p>
+    <div class="version-badge" id="versionBadge" style="margin-top:36px">
+      <span>●</span> <span id="versionText">Latest Release</span>
+    </div>
+    <div class="download-buttons">
+      <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/releases/latest" id="dlLinuxArm" class="dl-btn dl-btn-primary">
+        <span class="dl-btn-label">Raspberry Pi 4/5</span>
+        <span class="dl-btn-platform">🍓 Linux ARM64</span>
+        <span class="dl-btn-sub">AppImage · Self-contained</span>
+      </a>
+      <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/releases/latest" id="dlLinuxX64" class="dl-btn">
+        <span class="dl-btn-label">Linux Desktop</span>
+        <span class="dl-btn-platform">🐧 Linux x64</span>
+        <span class="dl-btn-sub">AppImage · Self-contained</span>
+      </a>
+      <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/releases/latest" id="dlWin" class="dl-btn">
+        <span class="dl-btn-label">Windows 10/11</span>
+        <span class="dl-btn-platform">🪟 Windows x64</span>
+        <span class="dl-btn-sub">NSIS Installer</span>
+      </a>
+    </div>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/releases" class="source-link">
+      View all releases on GitHub →
+    </a>
+  </div>
+</div>
+
+<!-- ── Security strip ── -->
+<div class="security-strip">
+  <div class="security-item"><span class="icon">🔐</span><span><strong>BCrypt</strong> PIN hashing</span></div>
+  <div class="security-item"><span class="icon">🎫</span><span><strong>JWT</strong> token denylist</span></div>
+  <div class="security-item"><span class="icon">🚫</span><span><strong>Login lockout</strong> on failures</span></div>
+  <div class="security-item"><span class="icon">🛡️</span><span><strong>Rate limiting</strong> on all endpoints</span></div>
+  <div class="security-item"><span class="icon">🏠</span><span><strong>Localhost-only</strong> CORS</span></div>
+  <div class="security-item"><span class="icon">📋</span><span><strong>Full audit trail</strong> on every action</span></div>
+</div>
+
+<!-- ── Legal Notice ── -->
+<div class="legal-notice">
+  <div class="legal-inner">
+    <p class="legal-title">Legal Notice & Disclaimers</p>
+    <p>This software is provided <strong>"as-is"</strong> without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. The author and contributors shall not be held liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use this software — including but not limited to loss of revenue, transaction errors, data loss, or business interruption.</p>
+    <p><strong>Payments:</strong> BMS POS is not a payment processor and is not PCI DSS certified. Electronic payment methods (Card, ETF/Digital) are recorded for internal tracking only — no actual payment processing occurs within the app. You are solely responsible for processing electronic transactions on compliant hardware and for any resulting disputes or chargebacks.</p>
+    <p><strong>Data & Privacy:</strong> All transaction, employee, and product data is stored in your own self-hosted or Supabase-managed PostgreSQL database. The author does not collect, store, or have access to any data you process through this software. You are responsible for ensuring your deployment complies with applicable data protection laws (including GDPR, PDPA, or local equivalents).</p>
+    <p><strong>Tax & Financial Accuracy:</strong> Tax rates, pricing, and financial calculations are configured by you and are not verified for compliance with any jurisdiction. This software does not constitute accounting, legal, or financial advice. Verify all figures independently before relying on them for regulatory or tax purposes.</p>
+    <p><strong>Third-party Services:</strong> Product barcode lookups use the <a href="https://www.upcitemdb.com/api/docs" target="_blank" rel="noopener">UPCItemDB API</a> (trial tier). Your use of that service is subject to <a href="https://www.upcitemdb.com/terms" target="_blank" rel="noopener">UPCItemDB's Terms of Service</a>. The author is not affiliated with UPCItemDB and makes no guarantees about the availability or accuracy of their data.</p>
+    <p><strong>No Support Obligation:</strong> This is free, open-source software with no guaranteed support, response times, or bug-fix commitments. Issues can be reported on <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/issues" target="_blank" rel="noopener">GitHub Issues</a> but there is no SLA. Do not deploy in a production environment without your own technical resource to support it.</p>
+    <p><strong>Hardware Compatibility:</strong> The application has been tested on specific hardware listed in the "Our Setup" section. While broad compatibility with USB thermal printers and barcode scanners is intended, the author makes no guarantee that all hardware models will work correctly. Verify compatibility in your environment before going live.</p>
+    <p><strong>Third-party Service Dependency (Supabase):</strong> This application requires a PostgreSQL database, typically hosted on Supabase. Availability, uptime, and pricing of Supabase are outside the author's control. The author is not liable for any downtime, data loss, or service changes caused by Supabase or your hosting provider.</p>
+    <p><strong>Regulated & Age-Restricted Goods:</strong> This software does not enforce age verification or compliance controls for regulated products (alcohol, tobacco, pharmaceuticals, etc.). If you use this application to sell age-restricted or regulated goods, you are solely responsible for compliance with all applicable laws and regulations in your jurisdiction.</p>
+    <p>This software is released under the <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/blob/main/LICENSE" target="_blank" rel="noopener">ISC License</a>. Use at your own risk.</p>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-paws"><span>🐾</span> <span>🐾</span> <span>🐾</span></div>
+  <div class="footer-links">
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System" target="_blank">GitHub</a>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/releases" target="_blank">Releases</a>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/issues" target="_blank">Issues</a>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/blob/main/SECURITY.md" target="_blank">Security</a>
+    <a href="https://github.com/decentaro/BMS-Point-of-Sale-System/blob/main/LICENSE" target="_blank">License</a>
+  </div>
+  <p>© 2026 <a href="https://github.com/decentaro" target="_blank" rel="noopener">decentaro</a> · ISC License · Built with 🐾 for retail kiosks</p>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
