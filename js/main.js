@@ -79,10 +79,34 @@ function initDownloadLinks() {
     .catch(() => {})
 }
 
+// ── Mobile nav ──
+function initMobileNav() {
+  const hamburger = document.getElementById('navHamburger')
+  const menu      = document.getElementById('navMobileMenu')
+  if (!hamburger || !menu) return
+
+  function close() {
+    hamburger.classList.remove('open')
+    menu.classList.remove('open')
+    hamburger.setAttribute('aria-expanded', 'false')
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = menu.classList.contains('open')
+    isOpen ? close() : (hamburger.classList.add('open'), menu.classList.add('open'), hamburger.setAttribute('aria-expanded', 'true'))
+  })
+
+  menu.querySelectorAll('.nav-mobile-link').forEach(link => link.addEventListener('click', close))
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !hamburger.contains(e.target)) close()
+  })
+}
+
 // ── Init ──
 document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons()
   initScreenshotTabs()
   initFaq()
   initDownloadLinks()
+  initMobileNav()
 })
