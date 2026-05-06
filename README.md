@@ -2,7 +2,7 @@
 
 Marketing and download landing page for [BMS Point of Sale](https://github.com/decentaro/BMS-Point-of-Sale-System), a free, offline-capable retail POS built for kiosks and Raspberry Pi.
 
-**Live site:** https://bms-pos.pages.dev *(update this once deployed)*
+**Live site:** https://bms-pos.bmspos22.workers.dev
 
 ---
 
