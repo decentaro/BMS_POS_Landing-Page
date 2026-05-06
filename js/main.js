@@ -70,7 +70,7 @@ function initDownloadLinks() {
         const name = asset.name.toLowerCase()
         if (name.includes('arm64') && name.endsWith('.appimage'))
           document.getElementById('dlLinuxArm').href = asset.browser_download_url
-        else if (name.includes('x64') && name.endsWith('.appimage'))
+        else if ((name.includes('x64') || name.includes('x86_64')) && name.endsWith('.appimage'))
           document.getElementById('dlLinuxX64').href = asset.browser_download_url
         else if (name.endsWith('.exe'))
           document.getElementById('dlWin').href = asset.browser_download_url
